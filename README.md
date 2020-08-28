@@ -15,7 +15,7 @@ This module aimed to build an interactive web dashboard depicting nCovid-19 usin
 * Data sources
   * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global nCovid-19 dataset
   * [KCDC](http://ncov.mohw.go.kr/): South Korean dataset providing provincial-level details
-  * [Naturalearth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
+  * [NaturalEarth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
 * Useful resources
   * [mapmeld](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form
   * [simplify](https://philmikejones.me/tutorials/2016-09-29-simplify-polygons-without-creating-slivers/): Using rmapshaper::simplify() in R to greatly reduce file sizes (Phil Mickey Johns)
