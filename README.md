@@ -22,5 +22,5 @@ This module aimed to build an interactive web dashboard depicting nCovid-19 usin
   * [dissolve](https://philmikejones.me/tutorials/2015-09-03-dissolve-polygons-in-r//): Merge small-scale districts into larger level ones (e.g., counties -> states) (Phil Mickey Johns)
  
 ## Selected modules used
-  * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (streamlit.altair_chart)
-  * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (streamlit.pydeck_chart)
+  * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
+  * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)
