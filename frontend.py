@@ -146,7 +146,7 @@ def show_map(data,stat,region=None,date=None):
     data = data.loc[data['Date']==date,['adm0_a3','Province/State','lat','lon',stat_keys[0],stat_keys[1]]]
 
     if not region or region == 'Worldwide':
-        data = data.groupby(['adm0_a3'])['lat','lon',stat_keys[0],stat_keys[1]].mean()
+        data = data.groupby(['adm0_a3'])[['lat','lon',stat_keys[0],stat_keys[1]]].mean()
         df = pd.merge(df,data,how='inner',left_on=['adm0_a3'],right_on=['adm0_a3'])
         zoom = 1
     else:

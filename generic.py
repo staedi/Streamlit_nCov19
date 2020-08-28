@@ -29,9 +29,9 @@ def set_candidates(data,region,country,stat,date=None,cutoff=20):
         stat_keys = list(stat.keys())
 
         if region:
-            data = data.loc[(data['Date']==date) & (data['adm0_a3']==region) & (data['Country/Region']==country) & (data['Province/State']!='Unknown'),['adm0_a3','Country/Region','Province/State',stat_keys[0],stat_keys[1]]].groupby(['adm0_a3','Country/Region','Province/State'])[stat_keys[0],stat_keys[1]].mean().reset_index()
+            data = data.loc[(data['Date']==date) & (data['adm0_a3']==region) & (data['Country/Region']==country) & (data['Province/State']!='Unknown'),['adm0_a3','Country/Region','Province/State',stat_keys[0],stat_keys[1]]].groupby(['adm0_a3','Country/Region','Province/State'])[[stat_keys[0],stat_keys[1]]].mean().reset_index()
         else:
-            data = data.loc[(data['Date']==date),['adm0_a3','Country/Region',stat_keys[0],stat_keys[1]]].groupby(['adm0_a3','Country/Region'])[stat_keys[0],stat_keys[1]].mean().reset_index()
+            data = data.loc[(data['Date']==date),['adm0_a3','Country/Region',stat_keys[0],stat_keys[1]]].groupby(['adm0_a3','Country/Region'])[[stat_keys[0],stat_keys[1]]].mean().reset_index()
 
         for stat_key in stat_keys:
             if region:
