@@ -11,7 +11,7 @@ This module aimed to build an interactive web dashboard depicting nCovid-19 usin
 * Draw a heatmap detailing given a region and measure (e.g., Daily infections increases in the US)
 * Draw a Choropleth with the same selection (Country-level or state-level comparisons)
 
-## Data sources
+## Data sources and helpful resources
 * Infections data
   * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global dataset
   * [KCDC](http://ncov.mohw.go.kr/): South Korean data with provincial-level details
