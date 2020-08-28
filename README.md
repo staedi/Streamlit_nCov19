@@ -12,11 +12,11 @@ This module aimed to build an interactive web dashboard depicting nCovid-19 usin
 * Draw a Choropleth with the same selection (Country-level or state-level comparisons)
 
 ## Data sources and helpful resources
-* Infections data
-  * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global dataset
-  * [KCDC](http://ncov.mohw.go.kr/): South Korean data with provincial-level details
-* Geographical data
-  * [Naturalearth](http://naturalearthdata.com/): Country (admin0) and state (admin1) data used (1:10m data is used for states data of non-American continent while 1:50m for others)
+* Data sources
+  * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global nCovid-19 dataset
+  * [KCDC](http://ncov.mohw.go.kr/): South Korean dataset providing provincial-level details
+  * [Naturalearth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
+* Useful resources
   * [mapmeld](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form
   * [simplify](https://philmikejones.me/tutorials/2016-09-29-simplify-polygons-without-creating-slivers/): Using rmapshaper::simplify() in R to greatly reduce file sizes (Phil Mickey Johns)
   * [dissolve](https://philmikejones.me/tutorials/2015-09-03-dissolve-polygons-in-r//): Merge small-scale districts into larger level ones (e.g., counties -> states) (Phil Mickey Johns)
