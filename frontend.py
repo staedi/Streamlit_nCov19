@@ -4,6 +4,7 @@
 import generic
 import pandas as pd
 import numpy as np
+import math
 import altair as alt
 import pydeck as pdk
 import streamlit as st
@@ -127,6 +128,11 @@ def show_map(data,stat,region=None,date=None):
                 return color_range[i]
         return color_range[i]
 
+    def elevation_scale(val,scale):
+        for i, b in enumerate(breaks):
+            if val <= b:
+                return i*scale
+
 
     def set_nan(val):
         if np.isnan(val):
@@ -162,12 +168,12 @@ def show_map(data,stat,region=None,date=None):
 
 
     df['fill_color'] = (df[stat_keys[0]]/df[stat_keys[0]].max()).replace(np.nan,0).apply(color_scale)
-    df['elevation'] = (df[stat_keys[1]]/df[stat_keys[1]].max()).replace(np.nan,0).apply(lambda x:x*5e4)
+    df['elevation'] = (df[stat_keys[1]]/df[stat_keys[1]].max()).replace(np.nan,0).apply(lambda x:elevation_scale(x,1e4))
 
     df['param'] = stat_text
     df.rename(columns={stat_keys[0]:'stat_0',stat_keys[1]:'stat_1'},inplace=True)
 
-    st.write(df)
+    # st.write(df)
 
     view_state = pdk.ViewState(
         latitude = df['lat'].mean(skipna=True),
