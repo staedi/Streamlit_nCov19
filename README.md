@@ -1,7 +1,7 @@
-# Streamlit_nCovid19
-Interactive Dashboard of nCovid19 employing Streamlit module
+# Streamlit_nCov19
+Interactive Dashboard of nCov-19 employing Streamlit module
 
-This module aimed to build an interactive web dashboard depicting nCovid-19 using [Streamlit](https://www.streamlit.io).
+This module aimed to build an interactive web dashboard depicting nCov-19 using [Streamlit](https://www.streamlit.io).
 
 ## Primary objectives
 * Basic options for users to choose
@@ -13,7 +13,7 @@ This module aimed to build an interactive web dashboard depicting nCovid-19 usin
 
 ## Data sources and helpful resources
 * Data sources
-  * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global nCovid-19 dataset
+  * [Johns Hopkins University Github](https://github.com/CSSEGISandData/COVID-19): Global nCov-19 dataset
   * [KCDC](http://ncov.mohw.go.kr/): South Korean dataset providing provincial-level details
   * [NaturalEarth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
 * Useful resources
