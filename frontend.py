@@ -127,6 +127,7 @@ def show_map(data,stat,region=None,date=None):
                 return color_range[i]
         return color_range[i]
 
+
     def set_nan(val):
         if np.isnan(val):
             return -1
@@ -159,13 +160,21 @@ def show_map(data,stat,region=None,date=None):
     # df[stat_keys[0]] = df[stat_keys[0]].apply(set_nan)
     # df[stat_keys[1]] = df[stat_keys[1]].apply(set_nan)
 
-    df['fill_color'] = (df[stat_keys[0]]/df[stat_keys[0]].max()).apply(color_scale)
+
+    df['fill_color'] = (df[stat_keys[0]]/df[stat_keys[0]].max()).replace(np.nan,0).apply(color_scale)
+    df['elevation'] = (df[stat_keys[1]]/df[stat_keys[1]].max()).replace(np.nan,0)
+
+    # df.elevation.map({None:0})
     df['param'] = stat_text
     df.rename(columns={stat_keys[0]:'stat_0',stat_keys[1]:'stat_1'},inplace=True)
+
+    st.write(df)
 
     view_state = pdk.ViewState(
         latitude = df['lat'].mean(skipna=True),
         longitude = df['lon'].mean(skipna=True),
+        bearings=15,
+        pitch=45,
         zoom=zoom)
 
     polygon_layer = pdk.Layer(
@@ -176,8 +185,11 @@ def show_map(data,stat,region=None,date=None):
         stroked=False,
         get_polygon="coordinates",
         filled=True,
-        # extruded=True,
-        # wireframe=True,
+        get_elevation='elevation',
+        # elevation_scale=1e5,
+        # elevation_range=[0,100],
+        extruded=True,
+        wireframe=True,
         get_fill_color= 'fill_color',
         get_line_color=[255, 255, 255],
         auto_highlight=True,
