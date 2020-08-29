@@ -162,9 +162,8 @@ def show_map(data,stat,region=None,date=None):
 
 
     df['fill_color'] = (df[stat_keys[0]]/df[stat_keys[0]].max()).replace(np.nan,0).apply(color_scale)
-    df['elevation'] = (df[stat_keys[1]]/df[stat_keys[1]].max()).replace(np.nan,0)
+    df['elevation'] = (df[stat_keys[1]]/df[stat_keys[1]].max()).replace(np.nan,0).apply(lambda x:x*5e4)
 
-    # df.elevation.map({None:0})
     df['param'] = stat_text
     df.rename(columns={stat_keys[0]:'stat_0',stat_keys[1]:'stat_1'},inplace=True)
 
@@ -173,8 +172,8 @@ def show_map(data,stat,region=None,date=None):
     view_state = pdk.ViewState(
         latitude = df['lat'].mean(skipna=True),
         longitude = df['lon'].mean(skipna=True),
-        bearings=15,
-        pitch=45,
+        # bearings=15,
+        # pitch=45,
         zoom=zoom)
 
     polygon_layer = pdk.Layer(
@@ -189,7 +188,7 @@ def show_map(data,stat,region=None,date=None):
         # elevation_scale=1e5,
         # elevation_range=[0,100],
         extruded=True,
-        wireframe=True,
+        # wireframe=True,
         get_fill_color= 'fill_color',
         get_line_color=[255, 255, 255],
         auto_highlight=True,
