@@ -9,7 +9,7 @@ import streamlit as st
 read_columns = {7:['Confirmed','Confirmed'],8:['r_Confirmed','Confirmed per 100K'],9:['i_Confirmed','Daily Confirmed'],10:['ri_Confirmed','Daily Confirmed per 100K'],11:['Tot_Confirmed','Total Confirmed'],12:['iTot_Confirmed','Daily Total Confirmed'],13:['rTot_Confirmed','Total Confirmed per 100K'],14:['riTot_Confirmed','Daily Total Confirmed per 100K'],15:['Deaths','Deaths'],16:['r_Deaths','Deaths per 100K'],17:['i_Deaths','Daily Deaths'],18:['ri_Deaths','Daily Deaths per 100K'],19:['Tot_Deaths','Total Deaths'],20:['iTot_Deaths','Daily Total Deaths'],21:['rTot_Deaths','Total Deaths per 100K'],22:['riTot_Deaths','Daily Total Deaths per 100K']}
 
 # Load dataset
-@st.cache
+# @st.cache
 def read_dataset(filename):
     data = pd.read_csv(filename,parse_dates=['Date'])
     data['Date'] = data['Date'].apply(lambda x:x.date())
