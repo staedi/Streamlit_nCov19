@@ -27,7 +27,7 @@ def display_sidebar(data):
 
     # 1) Choose a Region/Country to display
     st.sidebar.header('Choose Region/Country below')
-    # st.sidebar.subheader('*Caution*: Only multi-states countries are currently supported!')
+    # st.sidebar.subheader('*Note*: Only multi-states countries are currently supported!')
 
     # Set candiates of region (Country/Region)
     # st.sidebar.header('Choose Region/Country/State below')
@@ -161,8 +161,9 @@ def show_map(data,stat,region=None,date=None):
         df = pd.merge(df,data,how='inner',left_on=['name','adm0_a3'],right_on=['Province/State','adm0_a3'])
         zoom = 3
 
-    df.loc[df[stat_keys[0]]<0,stat_keys[0]] = 0
-    df.loc[df[stat_keys[1]]<0,stat_keys[1]] = 0
+    # Moved to generic.py
+    # df.loc[df[stat_keys[0]]<0,stat_keys[0]] = 0
+    # df.loc[df[stat_keys[1]]<0,stat_keys[1]] = 0
     # df[stat_keys[0]] = df[stat_keys[0]].apply(set_nan)
     # df[stat_keys[1]] = df[stat_keys[1]].apply(set_nan)
 

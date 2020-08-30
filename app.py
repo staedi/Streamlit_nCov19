@@ -27,7 +27,7 @@ filename = 'data/time_series_covid19.csv'
 st.title('Covid 19 Status Dashboard')
 
 # Initial data load
-update_status = st.markdown("Loading latest data...")
+update_status = st.markdown("Loading infections data...")
 covid = generic.read_dataset(filename)
 update_status.markdown('Load complete!')
 
@@ -38,5 +38,14 @@ sel_region, sel_country, chosen_stat, sel_map = frontend.display_sidebar(covid)
 
 ################################################################
 # Main section
+update_status.markdown("Finding top districts...")
 cand = generic.set_candidates(covid,sel_region,sel_country,chosen_stat)
+update_status.markdown("Calculation complete!")
+
+update_status.markdown("Drawing charts")
+if sel_map:
+    update_status.markdown("Drawing charts & maps...")
+else:
+    update_status.markdown("Drawing charts...")
 frontend.show_stats(covid,sel_region,sel_country,chosen_stat,cand,sel_map)
+update_status.markdown("Job Complete!")
