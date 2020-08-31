@@ -70,7 +70,7 @@ def display_sidebar(data):
 def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
     date = max(data['Date'])
 
-    if not sel_region or not chosen_stat:
+    if not sel_region:
         st.subheader('Global status as of ' + date.strftime('%m/%d/%y'))
         st.markdown(f"Cumulative infections:  `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_Confirmed'].max().sum():,}`")
         st.markdown(f"Cumulative casualties: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_Deaths'].max().sum():,}`")
@@ -103,28 +103,29 @@ def show_map(data,stat,region=None,date=None):
     json_geo = pd.read_json(src_geo)
     df = pd.DataFrame()
 
-    # Custom color scale
+    # Custom color scale (colorbrewer2.org -> Sequential Single-Hue)
+    breaks = [.0, .2, .4, .6, .8, 1]
     color_range = [
-        [65, 182, 196],
-        [127, 205, 187],
-        [199, 233, 180],
-        [237, 248, 177],
-        [255, 255, 204],
-        # [255, 237, 160],
-        [254, 217, 118],
-        # [254, 178, 76],
-        [253, 141, 60],
-        [252, 78, 42],
-        [227, 26, 28],
-        [189, 0, 38],
-        [128, 0, 38],
-    ]
+        # 6-class Blues
+        [255,255,255],
+        [198,219,239],
+        [158,202,225],
+        [107,174,214],
+        [49,130,189],
+        [8,81,156],
 
-    breaks = [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1]
+        # # 6-class Purples (For reference)
+        # [242,240,247],
+        # [218,218,235],
+        # [188,189,220],
+        # [158,154,200],
+        # [117,107,177],
+        # [84,39,143],
+    ]
 
     def color_scale(val):
         for i, b in enumerate(breaks):
-            if val < b:
+            if val <= b:
                 return color_range[i]
         return color_range[i]
 
