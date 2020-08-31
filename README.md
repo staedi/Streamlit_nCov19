@@ -1,7 +1,7 @@
 # Streamlit_nCov19
-Interactive Dashboard of nCov-19 employing Streamlit module
+Interactive Dashboard of Novel COVID-19 employing Streamlit module
 
-This module aimed to build an interactive web dashboard depicting nCov-19 using [Streamlit](https://www.streamlit.io).
+This module aimed to build an interactive web dashboard depicting Novel COVID-19 using [Streamlit](https://www.streamlit.io).
 
 ## Primary objectives
 * Basic options for users to choose
@@ -32,3 +32,6 @@ This module aimed to build an interactive web dashboard depicting nCov-19 using 
 ## Selected modules used
   * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
   * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)
+  
+## Online demonstrations
+The source has been deployed in `heroku` at [here](http://streamlit-ncov19.herokuapp.com/)
