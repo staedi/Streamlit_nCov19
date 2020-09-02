@@ -18,7 +18,8 @@ import frontend
 import pydeck as pdk
 import math
 
-filename = 'data/time_series_covid19.csv'
+
+filename = 'https://github.com/staedi/nCOV-summary/raw/master/time_series_covid19.csv'
 
 ################################################################
 # Header and preprocessing
