@@ -50,3 +50,8 @@ else:
     update_status.markdown("Drawing charts...")
 frontend.show_stats(covid,sel_region,sel_country,chosen_stat,cand,sel_map)
 update_status.markdown("Job Complete!")
+
+# Caption for credits
+st.subheader('Credits')
+st.write('Data source: Johns Hopkins University CSSE, KCDC')
+st.write('Map source: Natural Earth')

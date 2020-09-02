@@ -69,6 +69,7 @@ def display_sidebar(data):
 # Print latest global status
 def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
     date = max(data['Date'])
+    st.header('Summary statistics')
 
     if not sel_region:
         st.subheader('Global status as of ' + date.strftime('%m/%d/%y'))
@@ -91,6 +92,9 @@ def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
 
 # Load mapdata for selected region
 def show_map(data,stat,region=None,date=None):
+    st.subheader('Color maps')
+    st.write('Color depths: Infections')
+    st.write('Elevation: Casualties')
     if not date:
         date = max(data['Date'])
 
@@ -241,6 +245,7 @@ def show_chart(data,stat,candidates,region,date=None):
         date = min(data['Date'])
 
     if stat:
+        st.header('Regional analyses')
         stat_text = ['Infections','Casualties']
         stat_keys = list(stat.keys())
 
@@ -259,7 +264,10 @@ def show_chart(data,stat,candidates,region,date=None):
                 filtered_data.rename(columns={stat_key+'_x':stat_key,'index':'order'},inplace=True)
 
                 target_cat = 'Country/Region'
-
+            if idx == 0:
+                st.subheader('Infections developments')
+            else:
+                st.subheader('Casualties developments')
             heatmap = alt.Chart(filtered_data).mark_rect().encode(
                 x=alt.X('Date:O'),
                 y=alt.Y(target_cat, sort=alt.EncodingSortField(field='order',order='ascending')),
