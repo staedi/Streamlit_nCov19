@@ -244,6 +244,13 @@ def show_chart(data,stat,candidates,region,date=None):
     if not date:
         date = min(data['Date'])
 
+    # Set quantiles for x-axis ('Date')
+    dates = data['Date'].map(lambda x:x.strftime('%m/%d')).unique().tolist()
+    presets = [0,.25,.5,.75,1]
+    quantiles = np.quantile(np.arange(0,len(dates)),presets).tolist()
+    quantiles = [int(np.floor(q)) for q in quantiles]
+    date_visible = [dates[idx] for idx in quantiles]
+
     if stat:
         st.header('Regional analyses')
         stat_text = ['Infections','Casualties']
@@ -257,11 +264,15 @@ def show_chart(data,stat,candidates,region,date=None):
                 filtered_data.drop([stat_key+'_y'],axis=1,inplace=True)
                 filtered_data.rename(columns={stat_key+'_x':stat_key,'index':'order'},inplace=True)
 
+                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d'))
+
                 target_cat = 'Province/State'
             else:
                 filtered_data = pd.merge(data[['Date','adm0_a3','Country/Region',stat_key]],candidates[['index',stat_key]],how='inner',left_on='adm0_a3',right_on=stat_key)
                 filtered_data.drop([stat_key+'_y'],axis=1,inplace=True)
                 filtered_data.rename(columns={stat_key+'_x':stat_key,'index':'order'},inplace=True)
+
+                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d'))
 
                 target_cat = 'Country/Region'
             if idx == 0:
@@ -269,9 +280,10 @@ def show_chart(data,stat,candidates,region,date=None):
             else:
                 st.subheader('Casualties developments')
             heatmap = alt.Chart(filtered_data).mark_rect().encode(
-                x=alt.X('Date:O'),
+                x=alt.X('Date:O',axis=alt.Axis(values=date_visible,labelAngle=0)),
                 y=alt.Y(target_cat, sort=alt.EncodingSortField(field='order',order='ascending')),
-                color=alt.Color(stat_key,scale=alt.Scale(scheme='blues'),title=stat_text[idx])
+                color=alt.Color(stat_key,scale=alt.Scale(scheme='blues'),title=stat_text[idx]),
+                tooltip=['Date:O',target_cat,alt.Tooltip(stat_key,title=stat_text[idx])]
                 ).configure_scale(
                     bandPaddingInner=.1
                     )

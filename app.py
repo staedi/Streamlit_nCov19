@@ -53,5 +53,10 @@ update_status.markdown("Job Complete!")
 
 # Caption for credits
 st.subheader('Credits')
-st.write('Data source: Johns Hopkins University CSSE, KCDC')
+data_source = 'Johns Hopkins University CSSE'
+if sel_region == 'KOR':
+    data_source = 'KCDC'
+elif not sel_region:
+    data_source += ', KCDC'
+st.write('Data source: ' + data_source)
 st.write('Map source: Natural Earth')
