@@ -283,7 +283,7 @@ def show_chart(data,stat,candidates,region,date=None):
                 x=alt.X('Date:O',axis=alt.Axis(values=date_visible,labelAngle=0)),
                 y=alt.Y(target_cat, sort=alt.EncodingSortField(field='order',order='ascending')),
                 color=alt.Color(stat_key,scale=alt.Scale(scheme='blues'),title=stat_text[idx]),
-                tooltip=['Date:O',target_cat,alt.Tooltip(stat_key,title=stat_text[idx])]
+                tooltip=['Date:O',target_cat,alt.Tooltip(stat_key,title=stat_text[idx],format=',')]
                 ).configure_scale(
                     bandPaddingInner=.1
                     )
