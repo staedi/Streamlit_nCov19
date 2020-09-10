@@ -1,4 +1,4 @@
-![](https://img.shields.io/github/last-commit/staedi/Streamlit_nCov19/master) ![](https://img.shields.io/github/commit-activity/w/staedi/Streamlit_nCov19/master
+![](https://img.shields.io/github/last-commit/staedi/Streamlit_nCov19/master) ![](https://img.shields.io/github/commit-activity/w/staedi/Streamlit_nCov19)
 
 # Streamlit_nCov19
 Interactive Dashboard of Novel COVID-19 employing Streamlit module
