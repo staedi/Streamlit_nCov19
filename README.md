@@ -1,9 +1,8 @@
 ![](https://img.shields.io/github/last-commit/staedi/Streamlit_nCov19/master) ![](https://img.shields.io/github/commit-activity/w/staedi/Streamlit_nCov19)
 
 # Streamlit_nCov19
-Interactive Dashboard of Novel COVID-19 employing Streamlit module
-
-This module aimed to build an interactive web dashboard depicting Novel COVID-19 using [Streamlit](https://www.streamlit.io).
+Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
+You can try [here](http://streamlit-ncov19.herokuapp.com/).
 
 ## Primary objectives
 * Basic options for users to choose
@@ -35,5 +34,12 @@ This module aimed to build an interactive web dashboard depicting Novel COVID-19
   * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
   * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)
   
-## Online demonstrations
-The source has been deployed in `heroku` at [here](http://streamlit-ncov19.herokuapp.com/)
+## Snapshots
+### Main Landing Page
+![main](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/main.png)
+
+### Heatmap
+![US_heatmap](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/US.png)
+
+### Map
+![US](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/US_map.png)
