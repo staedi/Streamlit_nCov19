@@ -59,4 +59,5 @@ if sel_region == 'KOR':
 elif not sel_region:
     data_source += ', KCDC'
 st.write('Data source: ' + data_source)
-st.write('Map source: Natural Earth')
+st.write('Map shapedata: Natural Earth')
+st.write('Map provider: Mapbox, OpenStreetMap')
