@@ -1,5 +1,3 @@
-![](https://img.shields.io/github/last-commit/staedi/Streamlit_nCov19/master) ![](https://img.shields.io/github/commit-activity/w/staedi/Streamlit_nCov19)
-
 # Streamlit_nCov19
 Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
 You can try [here](http://streamlit-ncov19.herokuapp.com/).
@@ -18,7 +16,7 @@ You can try [here](http://streamlit-ncov19.herokuapp.com/).
   * [KCDC](http://ncov.mohw.go.kr/): South Korean dataset providing provincial-level details
   * [NaturalEarth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
 * Useful resources
-  * [mapmeld](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form
+  * [polygon conversion](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form (Nick Doiron)
   * [simplify](https://philmikejones.me/tutorials/2016-09-29-simplify-polygons-without-creating-slivers/): Using rmapshaper::simplify() in R to greatly reduce file sizes (Phil Mickey Johns)
   * [dissolve](https://philmikejones.me/tutorials/2015-09-03-dissolve-polygons-in-r//): Merge small-scale districts into larger level ones (e.g., counties -> states) (Phil Mickey Johns)
 
