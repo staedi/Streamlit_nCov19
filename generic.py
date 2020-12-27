@@ -18,9 +18,9 @@ def read_dataset(filename):
 
     neg_keys = list(set(val[0] for val in read_columns.values() if val[0].startswith('i')))
 
-    # No negative values
-    for iter in neg_keys:
-        data.loc[data[iter]<0,iter] = 0
+    # # No negative values
+    # for iter in neg_keys:
+    #     data.loc[data[iter]<0,iter] = 0
 
     return data
 
