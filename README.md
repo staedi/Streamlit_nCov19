@@ -1,7 +1,6 @@
 # Streamlit_nCov19
-Interactive Dashboard of Novel COVID-19 employing Streamlit module
-
-This module aimed to build an interactive web dashboard depicting Novel COVID-19 using [Streamlit](https://www.streamlit.io).
+Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
+You can try [here](http://streamlit-ncov19.herokuapp.com/).
 
 ## Primary objectives
 * Basic options for users to choose
@@ -17,7 +16,7 @@ This module aimed to build an interactive web dashboard depicting Novel COVID-19
   * [KCDC](http://ncov.mohw.go.kr/): South Korean dataset providing provincial-level details
   * [NaturalEarth](http://naturalearthdata.com/): Geographical shapedata for countries (admin0) and states-level (admin1) data to be used (1:10m data is used for selected countries for states details while 1:50m used for others)
 * Useful resources
-  * [mapmeld](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form
+  * [polygon conversion](https://gist.github.com/mapmeld/8742ae89c6d687171d00/): To convert `MultiPolygon` geojson to `Polygon` form (Nick Doiron)
   * [simplify](https://philmikejones.me/tutorials/2016-09-29-simplify-polygons-without-creating-slivers/): Using rmapshaper::simplify() in R to greatly reduce file sizes (Phil Mickey Johns)
   * [dissolve](https://philmikejones.me/tutorials/2015-09-03-dissolve-polygons-in-r//): Merge small-scale districts into larger level ones (e.g., counties -> states) (Phil Mickey Johns)
 
@@ -33,5 +32,12 @@ This module aimed to build an interactive web dashboard depicting Novel COVID-19
   * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
   * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)
   
-## Online demonstrations
-The source has been deployed in `heroku` at [here](http://streamlit-ncov19.herokuapp.com/)
+## Snapshots
+### Main Landing Page
+![main](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/main.png)
+
+### Heatmap
+![US_heatmap](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/US.png)
+
+### Map
+![US](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/US_map.png)
