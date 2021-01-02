@@ -245,7 +245,7 @@ def show_chart(data,stat,candidates,region,date=None):
         date = min(data['Date'])
 
     # Set quantiles for x-axis ('Date')
-    dates = data['Date'].map(lambda x:x.strftime('%m/%d')).unique().tolist()
+    dates = data['Date'].map(lambda x:x.strftime('%m/%d/%y')).unique().tolist()
     presets = [0,.25,.5,.75,1]
     quantiles = np.quantile(np.arange(0,len(dates)),presets).tolist()
     quantiles = [int(np.floor(q)) for q in quantiles]
@@ -264,7 +264,7 @@ def show_chart(data,stat,candidates,region,date=None):
                 filtered_data.drop([stat_key+'_y'],axis=1,inplace=True)
                 filtered_data.rename(columns={stat_key+'_x':stat_key,'index':'order'},inplace=True)
 
-                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d'))
+                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d/%y'))
 
                 target_cat = 'Province/State'
             else:
@@ -272,15 +272,16 @@ def show_chart(data,stat,candidates,region,date=None):
                 filtered_data.drop([stat_key+'_y'],axis=1,inplace=True)
                 filtered_data.rename(columns={stat_key+'_x':stat_key,'index':'order'},inplace=True)
 
-                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d'))
+                filtered_data['Date'] = filtered_data['Date'].map(lambda x:x.strftime('%m/%d/%y'))
 
                 target_cat = 'Country/Region'
             if idx == 0:
                 st.subheader('Infections developments')
             else:
                 st.subheader('Casualties developments')
+
             heatmap = alt.Chart(filtered_data).mark_rect().encode(
-                x=alt.X('Date:O',axis=alt.Axis(values=date_visible,labelAngle=0)),
+                x=alt.X('Date:O', sort=dates, axis=alt.Axis(values=date_visible,labelAngle=0)),
                 y=alt.Y(target_cat, sort=alt.EncodingSortField(field='order',order='ascending')),
                 color=alt.Color(stat_key,scale=alt.Scale(scheme='blues'),title=stat_text[idx]),
                 tooltip=['Date:O',target_cat,alt.Tooltip(stat_key,title=stat_text[idx],format=',')]
