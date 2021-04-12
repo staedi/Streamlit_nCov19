@@ -1,6 +1,6 @@
 # Streamlit_nCov19
 Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
-You can try [here](http://streamlit-ncov19.herokuapp.com/).
+You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 
 ## Primary objectives
 * Basic options for users to choose
