@@ -60,4 +60,4 @@ elif not sel_region:
     data_source += ', KCDC'
 st.write('Data source: ' + data_source)
 st.write('Map shapedata: Natural Earth')
-st.write('Map provider: Mapbox, OpenStreetMap')
+st.write('Map provider: Carto')
