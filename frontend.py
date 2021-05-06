@@ -232,7 +232,7 @@ def show_map(data,stat,region=None,date=None):
     r = pdk.Deck(
         layers=[polygon_layer],
         initial_view_state=view_state,
-        map_style=pdk.map_styles.LIGHT,
+        map_style='light',
         tooltip=tooltip,
         )
 
