@@ -1,3 +1,6 @@
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/staedi/streamlit_ncov19/app.py)
+
+
 # Streamlit_nCov19
 Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
 You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
