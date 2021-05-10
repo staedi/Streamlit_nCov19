@@ -33,7 +33,7 @@ def display_sidebar(data):
         raise st.ScriptRunner.RerunException
     
     # 1) Choose a Region/Country to display
-    st.sidebar.subheader('Choose Region/Country below')
+    # st.sidebar.subheader('Choose Region/Country below')
     # st.sidebar.subheader('*Note*: Only multi-states countries are currently supported!')
 
     # Set candiates of region (Country/Region)
