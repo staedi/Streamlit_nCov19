@@ -27,8 +27,8 @@ def display_sidebar(data):
 
     st.sidebar.header('Choose options below')
     # 0) Need to reset data
-    st.markdown('Reset dataset?')
-    if st.button(label='Clear cache'):
+    st.sidebar.markdown('Reset dataset?')
+    if st.sidebar.button(label='Clear cache'):
         st.caching.clear_cache()
         raise st.ScriptRunner.RerunException
     
