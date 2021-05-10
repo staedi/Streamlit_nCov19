@@ -30,7 +30,7 @@ def display_sidebar(data):
     st.sidebar.markdown('Reset dataset?')
     if st.sidebar.button(label='Clear cache'):
         st.caching.clear_cache()
-        raise st.ScriptRunner.RerunException
+        st.experimental_rerun()
     
     # 1) Choose a Region/Country to display
     # st.sidebar.subheader('Choose Region/Country below')
