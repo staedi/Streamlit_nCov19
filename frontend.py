@@ -25,8 +25,15 @@ def display_sidebar(data):
     #
     # else:
 
+    st.sidebar.header('Choose options below')
+    # 0) Need to reset data
+    st.markdown('Reset dataset?')
+    if st.button(label='Clear cache'):
+        st.caching.clear_cache()
+        raise st.ScriptRunner.RerunException
+    
     # 1) Choose a Region/Country to display
-    st.sidebar.header('Choose Region/Country below')
+    st.sidebar.subheader('Choose Region/Country below')
     # st.sidebar.subheader('*Note*: Only multi-states countries are currently supported!')
 
     # Set candiates of region (Country/Region)
