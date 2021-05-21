@@ -189,8 +189,8 @@ def show_map(data,stat,region=None,date=None):
     # st.write(df)
 
     view_state = pdk.ViewState(
-        latitude = df['lat'].mean(skipna=True),
-        longitude = df['lon'].mean(skipna=True),
+        latitude = df.loc[(df['lat'] != 0) & (df['lon'] != 0),'lat'].mean(skipna=True),
+        longitude = df.loc[(df['lat'] != 0) & (df['lon'] != 0),'lon'].mean(skipna=True),
         # bearings=15,
         # pitch=45,
         zoom=zoom)
