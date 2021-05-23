@@ -9,7 +9,7 @@ import altair as alt
 import pydeck as pdk
 import streamlit as st
 
-read_columns = {7:['Confirmed','State-level Cumulative'],9:['i_Confirmed','State-level Changes'],11:['Tot_Confirmed','Country-level Cumulative'],12:['iTot_Confirmed','Country-level Changes'],15:['Deaths','State-level Cumulative'],17:['i_Deaths','State-level Changes'],19:['Tot_Deaths','Country-level Cumulative'],20:['iTot_Deaths','Country-level Changes']}
+read_columns = {7:['confirmed','State-level Cumulative'],9:['i_confirmed','State-level Changes'],11:['Tot_confirmed','Country-level Cumulative'],12:['iTot_confirmed','Country-level Changes'],15:['deaths','State-level Cumulative'],17:['i_deaths','State-level Changes'],19:['Tot_deaths','Country-level Cumulative'],20:['iTot_deaths','Country-level Changes']}
 
 # Module to display sidebar
 def display_sidebar(data):
@@ -80,17 +80,17 @@ def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
 
     if not sel_region:
         st.subheader('Global status as of ' + date.strftime('%m/%d/%y'))
-        st.markdown(f"Cumulative infections:  `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_Confirmed'].max().sum():,}`")
-        st.markdown(f"Cumulative casualties: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_Deaths'].max().sum():,}`")
-        st.markdown(f"Daily infections changes: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_Confirmed'].max().sum():,}`")
-        st.markdown(f"Daily casualties changes: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_Deaths'].max().sum():,}`")
+        st.markdown(f"Cumulative infections:  `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_confirmed'].max().sum():,}`")
+        st.markdown(f"Cumulative casualties: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_deaths'].max().sum():,}`")
+        st.markdown(f"Daily infections changes: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_confirmed'].max().sum():,}`")
+        st.markdown(f"Daily casualties changes: `{data[data['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_deaths'].max().sum():,}`")
 
     else:
         st.subheader(sel_country + ' status as of ' + date.strftime('%m/%d/%y'))
-        st.markdown(f"Cumulative infections:  `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_Confirmed'].max().sum():,}`")
-        st.markdown(f"Cumulative casualties: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_Deaths'].max().sum():,}`")
-        st.markdown(f"Daily infections changes: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_Confirmed'].max().sum():,}`")
-        st.markdown(f"Daily casualties changes: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_Deaths'].max().sum():,}`")
+        st.markdown(f"Cumulative infections:  `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_confirmed'].max().sum():,}`")
+        st.markdown(f"Cumulative casualties: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_deaths'].max().sum():,}`")
+        st.markdown(f"Daily infections changes: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_confirmed'].max().sum():,}`")
+        st.markdown(f"Daily casualties changes: `{data[(data['Date']==date) & (data['adm0_a3']==sel_region) & (data['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_deaths'].max().sum():,}`")
 
     show_chart(data,chosen_stat,candidates,sel_region)
 
