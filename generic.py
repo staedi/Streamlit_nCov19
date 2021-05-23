@@ -6,7 +6,7 @@ from datetime import datetime
 import streamlit as st
 # import pydeck as pdk
 
-read_columns = {7:['Confirmed','Confirmed'],8:['r_Confirmed','Confirmed per 100K'],9:['i_Confirmed','Daily Confirmed'],10:['ri_Confirmed','Daily Confirmed per 100K'],11:['Tot_Confirmed','Total Confirmed'],12:['iTot_Confirmed','Daily Total Confirmed'],13:['rTot_Confirmed','Total Confirmed per 100K'],14:['riTot_Confirmed','Daily Total Confirmed per 100K'],15:['Deaths','Deaths'],16:['r_Deaths','Deaths per 100K'],17:['i_Deaths','Daily Deaths'],18:['ri_Deaths','Daily Deaths per 100K'],19:['Tot_Deaths','Total Deaths'],20:['iTot_Deaths','Daily Total Deaths'],21:['rTot_Deaths','Total Deaths per 100K'],22:['riTot_Deaths','Daily Total Deaths per 100K']}
+read_columns = {7:['confirmed','Confirmed'],8:['r_confirmed','Confirmed per 100K'],9:['i_confirmed','Daily Confirmed'],10:['ri_confirmed','Daily Confirmed per 100K'],11:['Tot_confirmed','Total Confirmed'],12:['iTot_confirmed','Daily Total Confirmed'],13:['rTot_confirmed','Total Confirmed per 100K'],14:['riTot_confirmed','Daily Total Confirmed per 100K'],15:['deaths','Deaths'],16:['r_deaths','Deaths per 100K'],17:['i_Deaths','Daily Deaths'],18:['ri_deaths','Daily Deaths per 100K'],19:['Tot_deaths','Total Deaths'],20:['iTot_deaths','Daily Total Deaths'],21:['rTot_deaths','Total Deaths per 100K'],22:['riTot_deaths','Daily Total Deaths per 100K']}
 
 # Load dataset
 @st.cache
