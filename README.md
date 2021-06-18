@@ -1,7 +1,7 @@
-# Streamlit_nCov19
+# Streamlit_nCov19 (v2)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/staedi/streamlit_ncov19/app.py)
 
-Interactive Dashboard of Novel COVID-19 employing [Streamlit](https://www.streamlit.io) module.
+Interactive Dashboard of COVID-19 infections and vaccinations employing [Streamlit](https://www.streamlit.io) module .
 You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 
 ## Primary objectives
@@ -36,9 +36,9 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 * Barplot (Vaccinations-only)
   * For countries which don't provide province/state-level data, two barplots are drawn (administered and fully vaccinated)
   * On top of barplot, 5-day moving-average line plot is overlayed.
-* (Temporarily disabled) ~~Choropleth~~
-  * Both measures are drawn on a single choropleth (casualties on top of infections)
-  * Infections are shown by the color depth while casualties are represented by elevations of the regions
+* (Temporarily disabled) ~~Choropleth
+  * ~~Both measures are drawn on a single choropleth (casualties on top of infections)
+  * ~~Infections are shown by the color depth while casualties are represented by elevations of the regions
   
 ## Selected modules used
   * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
@@ -56,3 +56,6 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 
 ### Barplot - Vaccinations (Country-level)
 ![barplot](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/barplot_vaccinations.png)
+
+## Note
+While Choropleth is temporarily closed after the addition of vaccinations data, it will be brought back at later stage.
