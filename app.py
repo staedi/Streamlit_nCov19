@@ -5,7 +5,7 @@
 app.py: Frontend runner file for nCovid_19 Streamlit application
 
 Dependencies
-data: data/time_series_covid19.csv
+data: data/time_series_covid19_infections.csv, data/time_series_covid19_vaccines.csv
 modules:
 frontend.py: Front-end works
 generic.py: Load necessary files (infections, map)
@@ -19,45 +19,69 @@ import pydeck as pdk
 import math
 
 
+file_dict = {'infections':'https://github.com/staedi/nCOV-summary/raw/master/time_series_covid19_infections.csv','vaccines':'https://github.com/staedi/nCOV-summary/raw/master/time_series_covid19_vaccines.csv'}
 filename = 'https://github.com/staedi/nCOV-summary/raw/master/time_series_covid19_infections.csv'
 
 ################################################################
 # Header and preprocessing
 
 # Set Title
-st.title('Covid 19 Status Dashboard')
+st.title('nCOV-19 Status (Infections, Vaccinations)')
 
 # Initial data load
-update_status = st.markdown("Loading infections data...")
-covid = generic.read_dataset(filename)
-update_status.markdown('Load complete!')
+# update_status = st.markdown("Loading infections data...")
+data = generic.read_dataset(file_dict)
+# update_status.markdown('Load complete!')
 
 ################################################################
 # Sidebar section (Only multi-states country can be chosen)
-sel_region, sel_country, chosen_stat, sel_map = frontend.display_sidebar(covid)
-
+sel_region, sel_country, chosen_stat, sel_map = frontend.display_sidebar(data)
 
 ################################################################
 # Main section
-update_status.markdown("Finding top districts...")
-cand = generic.set_candidates(covid,sel_region,sel_country,chosen_stat)
-update_status.markdown("Calculation complete!")
+# update_status.markdown("Finding top districts...")
+cand = generic.set_candidates(data,sel_region,sel_country,chosen_stat)
 
-update_status.markdown("Drawing charts")
-if sel_map:
-    update_status.markdown("Drawing charts & maps...")
-else:
-    update_status.markdown("Drawing charts...")
-frontend.show_stats(covid,sel_region,sel_country,chosen_stat,cand,sel_map)
-update_status.markdown("Job Complete!")
+
+# update_status.markdown("Calculation complete!")
+#
+# update_status.markdown("Drawing charts")
+# if sel_map:
+#     update_status.markdown("Drawing charts & maps...")
+# else:
+#     update_status.markdown("Drawing charts...")
+frontend.show_stats(data,sel_region,sel_country,chosen_stat,cand,sel_map)
+# update_status.markdown("Job Complete!")
 
 # Caption for credits
 st.subheader('Credits')
-data_source = 'Johns Hopkins University CSSE'
-if sel_region == 'KOR':
-    data_source = 'KCDC'
-elif not sel_region:
-    data_source += ', KCDC'
-st.write('Data source: ' + data_source)
-st.write('Map shapedata: Natural Earth')
-st.write('Map provider: Carto')
+infections = f'\n* Global and US: Johns Hopkins University CSSE GitHub'
+infections += f'\n* South Korea: South Korean CDC'
+
+vaccinations = f'\n* Global and US: Johns Hopkins University GoVex GitHub'
+vaccinations += f'\n* South Korea: South Korean CDC'
+vaccinations += f'\n* Australia: COVID Live'
+vaccinations += f'\n* Canada: COVID-19 Tracker Project'
+vaccinations += f'\n* UK: Public Health England'
+
+# data_source = f'\n* Global and US: Johns Hopkins University GitHub (CSSE, GoVex)'
+# data_source += ' \n* South Korea: South Korean CDC'
+# data_source += ' \n* Australia: COVID Live'
+# data_source += ' \n* Canada: COVID-19 Tracker Project'
+# data_source += ' \n* UK: Public Health England'
+
+# data_source = 'Johns Hopkins University GitHub (CSSE, GoVex)'
+# if sel_region == 'KOR':
+#     data_source = 'South Korean CDC'
+# elif sel_region == 'AUS':
+#     data_source = 'COVID Live'
+# elif sel_region == 'CAN':
+#     data_source = 'COVID-19 Tracker Project'
+# elif sel_region == 'GBR':
+#     data_source = 'Public Health England'
+# elif not sel_region:
+#     data_source += ', South Korean CDC, COVID Live, COVID-19 Tracker Project, Public Health England'
+st.write('Infections data source ' + infections)
+st.write('Vaccinations data source ' + vaccinations)
+# st.write('Map shapedata: Natural Earth')
+# st.write('Map provider: Carto')
