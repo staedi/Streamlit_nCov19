@@ -10,7 +10,7 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
   * Global aggregate stat or per-country information
 * Display a basic statistics for selected area (Global or for specific country)
 * Draw a heatmap detailing given a region and measure (e.g., Daily confirmed patients increases in the US)
-* (Temporarily disabled) ~~Draw a Choropleth with the same selection (Country-level or state-level comparisons)~~
+* Draw a Choropleth with the same selection (Country-level or state-level comparisons)
 
 ## Data sources and helpful resources
 * Infections data source
@@ -31,18 +31,17 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 
 ## Descriptions of objects
 * Heatmap
-  * Two separate charts are drawn (Infections: confirmed, casaulties / Vaccinations: administered, fully vaccinated)
+  * Two separate charts are drawn (Infections: confirmed, casualties / Vaccinations: administered, fully vaccinated)
   * Regions on y-axis are pre-sorted by the figures (ordered in a descending manner for top-25 disricts)
 * Barplot (Vaccinations-only)
-  * For countries which don't provide province/state-level data, two barplots are drawn (administered and fully vaccinated)
-  * On top of barplot, 5-day moving-average line plot is overlayed.
-* (Temporarily disabled) ~~Choropleth
-  * ~~Both measures are drawn on a single choropleth (casualties on top of infections)
-  * ~~Infections are shown by the color depth while casualties are represented by elevations of the regions
+  * For countries which don't provide province/state-level data, single stacked barplot with both measures are drawn (administered and fully vaccinated)
+* Choropleth
+  * Two measures are drawn on a single choropleth (Color depths: confirmed / administered, Elevations: casualties / fully vaccinated)
+  * One measure is shown by the color depth while the other is represented by elevations of the regions
   
 ## Selected modules used
   * [Altair](http://altair-viz.github.io/): Altair chart module used to draw heatmap (`streamlit.altair_chart`)
-  * (Temporarily disabled) ~~[Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)~~
+  * [Pydeck](http://pydeck.gl/): Pydeck mapping module used to draw Choropleth/PolygonLayer (`streamlit.pydeck_chart`)
   
 ## Snapshots
 ### Main Landing Page
@@ -56,6 +55,3 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 
 ### Barplot - Vaccinations (Country-level)
 ![barplot](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/barplot_vaccinations.png)
-
-## Note
-While Choropleth is temporarily closed after the addition of vaccinations data, it will be brought back at later stage.
