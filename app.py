@@ -64,24 +64,7 @@ vaccinations += f'\n* Australia: COVID Live'
 vaccinations += f'\n* Canada: COVID-19 Tracker Project'
 vaccinations += f'\n* UK: Public Health England'
 
-# data_source = f'\n* Global and US: Johns Hopkins University GitHub (CSSE, GoVex)'
-# data_source += ' \n* South Korea: South Korean CDC'
-# data_source += ' \n* Australia: COVID Live'
-# data_source += ' \n* Canada: COVID-19 Tracker Project'
-# data_source += ' \n* UK: Public Health England'
-
-# data_source = 'Johns Hopkins University GitHub (CSSE, GoVex)'
-# if sel_region == 'KOR':
-#     data_source = 'South Korean CDC'
-# elif sel_region == 'AUS':
-#     data_source = 'COVID Live'
-# elif sel_region == 'CAN':
-#     data_source = 'COVID-19 Tracker Project'
-# elif sel_region == 'GBR':
-#     data_source = 'Public Health England'
-# elif not sel_region:
-#     data_source += ', South Korean CDC, COVID Live, COVID-19 Tracker Project, Public Health England'
 st.write('Infections data source ' + infections)
 st.write('Vaccinations data source ' + vaccinations)
-# st.write('Map shapedata: Natural Earth')
-# st.write('Map provider: Carto')
+st.write('Map shapedata: Natural Earth')
+st.write('Map provider: Carto')
