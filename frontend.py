@@ -362,7 +362,7 @@ def show_chart(data,stat,candidates,region,date=None):
                             # y=alt.Y(target_cat, sort=alt.EncodingSortField(field='order',order='ascending')),
                             y=alt.Y('Vaccinations:Q', sort=alt.EncodingSortField(field='order',order='ascending')),
                             color=alt.Color('Types:N',scale=alt.Scale(scheme='blues')),
-                            tooltip=['Date:O',target_cat,alt.Tooltip('Vaccinations:Q',format=tooltip_format)]
+                            tooltip=['Date:O',target_cat,'Types:O',alt.Tooltip('Vaccinations:Q',format=tooltip_format)]
                                 )
                                 # .configure_scale(
                                 #     bandPaddingInner=.1
