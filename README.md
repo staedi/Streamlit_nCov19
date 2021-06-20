@@ -54,4 +54,10 @@ You can try [here](https://share.streamlit.io/staedi/streamlit_ncov19/app.py).
 ![vaccinations_heatmap](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/heatmap_vaccinations.png)
 
 ### Barplot - Vaccinations (Country-level)
-![barplot](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/barplot_vaccinations.png)
+![barplot](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/stackedbar_vaccinations.png)
+
+### Choropleth - Infections
+![infections_choropleth](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/choropleth_infections.png)
+
+### Choropleth - Vaccinations
+![vaccinations_choropleth](https://github.com/staedi/Streamlit_nCov19/raw/master/samples/choropleth_vaccinations.png)
