@@ -65,10 +65,19 @@ def set_candidates(data,region,country,stat,date=None,cutoff=20):
                     dataset_dict[stat_key] = list(dataset[idx].sort_values(by=stat_key,ascending=False)['adm0_a3'][:cutoff])
 
         dataset_dict = {key:stat_key for key,stat_key in dataset_dict.items() if stat_key}
-        residues = list(set(max(dataset_dict.values()))-set(min(dataset_dict.values())))
+
+        sizes = {}
+
+        for key, stat_key in dataset_dict.items():
+            if not sizes.get('min') or (sizes.get('min') and len(dataset_dict[sizes['min']]) > len(stat_key)):
+                sizes['min'] = key
+            if not sizes.get('max') or (sizes.get('max') and len(dataset_dict[sizes['max']]) < len(stat_key)):
+                sizes['max'] = key
+
+        residues = list(set(dataset_dict[sizes['max']])-set(dataset_dict[sizes['min']]))
 
         for stat_key, val in dataset_dict.items():
-            if len(val) < len(max(dataset_dict.values())):
+            if len(val) < len(dataset_dict[sizes['max']]):
                 dataset_dict[stat_key].extend(residues)
 
         len_cand = min([len(cand) for cand in dataset_dict.values()])
