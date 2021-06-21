@@ -64,7 +64,7 @@ def set_candidates(data,region,country,stat,date=None,cutoff=20):
                 else:
                     dataset_dict[stat_key] = list(dataset[idx].sort_values(by=stat_key,ascending=False)['adm0_a3'][:cutoff])
 
-        dataset_dict = {key:stat_key for key,stat_key in dataset_dict.items() if stat_key}
+        dataset_dict = {key:stat_key for key,stat_key in dataset_dict.items() if stat_key and region not in stat_key}
 
         sizes = {}
 
