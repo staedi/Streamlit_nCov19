@@ -73,8 +73,8 @@ def display_sidebar(data):
             # iTot
             if not sel_region:
                 chosen_stat[key] = [val for val in chosen_stat[key] if 'Tot' in val]
-            # elif key == 'infections':
-            #     chosen_stat[key] = [val for val in chosen_stat[key] if 'Tot' not in val]
+            elif key == 'infections':
+                chosen_stat[key] = [val for val in chosen_stat[key] if 'Tot' not in val]
 
 
     # chosen_stat = {}
