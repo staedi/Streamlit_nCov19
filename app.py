@@ -58,13 +58,13 @@ st.subheader('Credits')
 infections = f'\n* Global and US: Johns Hopkins University CSSE GitHub'
 infections += f'\n* South Korea: South Korean CDC'
 
-vaccinations = f'\n* Global and US: Johns Hopkins University GoVex GitHub'
-vaccinations += f'\n* South Korea: South Korean CDC'
-vaccinations += f'\n* Australia: COVID Live'
-vaccinations += f'\n* Canada: COVID-19 Tracker Project'
-vaccinations += f'\n* UK: Public Health England'
+# vaccinations = f'\n* Global and US: Johns Hopkins University GoVex GitHub'
+# vaccinations += f'\n* South Korea: South Korean CDC'
+# vaccinations += f'\n* Australia: COVID Live'
+# vaccinations += f'\n* Canada: COVID-19 Tracker Project'
+# vaccinations += f'\n* UK: Public Health England'
 
 st.write('Infections data source ' + infections)
-st.write('Vaccinations data source ' + vaccinations)
+# st.write('Vaccinations data source ' + vaccinations)
 st.write('Map shapedata: Natural Earth')
 st.write('Map provider: Carto')

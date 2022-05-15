@@ -64,7 +64,8 @@ def display_sidebar(data):
     stat_text = sorted(set(val[1] for val in read_columns['infections'].values()))
     stat_text = [None] + stat_text[:]
 
-    chosen_stat = {'infections':[],'vaccines':[]}
+    # chosen_stat = {'infections':[],'vaccines':[]}
+    chosen_stat = {'infections':[]}
     chosen_stat_text = st.sidebar.selectbox('Statistics',stat_text)
 
     if chosen_stat_text:
