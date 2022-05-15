@@ -105,11 +105,11 @@ def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
         infections += f"\n* Daily casualties changes: `{data['infections'][data['infections']['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_deaths'].max().sum():,}`"
         st.write('***Infections*** '+infections)
 
-        vaccinations = f"\n* Cumulative administed doses:  `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_admin'].max().sum():,}`"
-        vaccinations += f"\n* Cumulative fully vaccinations: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_full'].max().sum():,}`"
-        vaccinations += f"\n* Daily administed doses changes: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_admin'].max().sum():,}`"
-        vaccinations += f"\n* Daily fully vaccinations changes: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_full'].max().sum():,}`"
-        st.write('***Vaccinations*** '+vaccinations)
+        # vaccinations = f"\n* Cumulative administed doses:  `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_admin'].max().sum():,}`"
+        # vaccinations += f"\n* Cumulative fully vaccinations: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['Tot_full'].max().sum():,}`"
+        # vaccinations += f"\n* Daily administed doses changes: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_admin'].max().sum():,}`"
+        # vaccinations += f"\n* Daily fully vaccinations changes: `{data['vaccines'][data['vaccines']['Date']==date].groupby(['adm0_a3','Country/Region'])['iTot_full'].max().sum():,}`"
+        # st.write('***Vaccinations*** '+vaccinations)
 
     else:
         st.subheader(sel_country + ' status as of ' + date.strftime('%m/%d/%y'))
@@ -120,11 +120,11 @@ def show_stats(data,sel_region,sel_country,chosen_stat,candidates,map=None):
         infections += f"\n* Daily casualties changes: `{data['infections'][(data['infections']['Date']==date) & (data['infections']['adm0_a3']==sel_region) & (data['infections']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_deaths'].max().sum():,}`"
         st.write('***Infections*** '+infections)
 
-        vaccinations = f"\n* Cumulative administed doses:  `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_admin'].max().sum():,}`"
-        vaccinations += f"\n* Cumulative fully vaccinations: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_full'].max().sum():,}`"
-        vaccinations += f"\n* Daily administed doses changes: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_admin'].max().sum():,}`"
-        vaccinations += f"\n* Daily fully vaccinations changes: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_full'].max().sum():,}`"
-        st.write('***Vaccinations*** '+vaccinations)
+        # vaccinations = f"\n* Cumulative administed doses:  `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_admin'].max().sum():,}`"
+        # vaccinations += f"\n* Cumulative fully vaccinations: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['Tot_full'].max().sum():,}`"
+        # vaccinations += f"\n* Daily administed doses changes: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_admin'].max().sum():,}`"
+        # vaccinations += f"\n* Daily fully vaccinations changes: `{data['vaccines'][(data['vaccines']['Date']==date) & (data['vaccines']['adm0_a3']==sel_region) & (data['vaccines']['Country/Region']==sel_country)].groupby(['adm0_a3','Country/Region'])['iTot_full'].max().sum():,}`"
+        # st.write('***Vaccinations*** '+vaccinations)
 
     show_chart(data,chosen_stat,candidates,sel_region)
 
